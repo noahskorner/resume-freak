@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import *
 
@@ -51,10 +51,17 @@ def index(request):
                                 project.save()
                                 skill.save()
                                 hobby.save()
-                                return HttpResponse('/thanks/')
+                                url = '/resume/' + str(resume.id) + '/'
+                                return redirect(url)
 
     # if a GET (or any other method) we'll create a blank form
     else:
         context = {'contact_form': ContactInfoForm(),
                    'education_form': EducationForm(), 'experience_form': ExperienceForm(), 'project_form': ProjectForm(), 'skill_form': SkillForm(), 'hobby_form': HobbyForm()}
         return render(request, 'resume_builder/resume_form.html', context)
+
+
+def resume(request, pk):
+    resume = Resume.objects.get(id=pk)
+    context = {'resume': resume}
+    return render(request, 'resume_builder/resume.html', context)

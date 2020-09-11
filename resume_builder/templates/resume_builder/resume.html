@@ -1,5 +1,46 @@
 {% extends 'resume_builder/index.html' %}
 <!---->
-{% block content %} {% load static %} {% load crispy_forms_tags %}
-<div class="container-fluid" style="max-width: 720px">HELLO</div>
+{% block content %} {% load static %}
+<div class="container-fluid" style="max-width: 720px">
+  <!-- Contact Info -->
+  <h1>{{resume.contact_info.first_name}} {{resume.contact_info.last_name}}</h1>
+  <h6>Cell:</h6>
+  <p>{{resume.contact_info.phone_number}}</p>
+  <h6>Email:</h6>
+  <p>{{resume.contact_info.email}}</p>
+  <!-- Educations -->
+  <h2>Education</h2>
+  {% for education in resume.educations %}
+  <h4>{{education.school}}</h4>
+  <p>{{education.major}}</p>
+  <p>{{education.start_date}} - {{education.end_date}}</p>
+  <!-- GPA -->
+  {% if education.gpa %}
+  <p>{{education.gpa}}</p>
+  {% endif %}
+  <!-- end GPA -->
+  {% endfor %}
+  <!-- Experiences -->
+  <h2>Experience</h2>
+  {% for experience in resume.experiences %}
+  <h4>{{experience.organization}}</h4>
+  <p>{{experience.start_date}} - {{experience.end_date}}</p>
+  {% endfor %}
+  <!-- Projects -->
+  <h2>Projects</h2>
+  {% for project in resume.projects %}
+  <h4>{{project.name}}</h4>
+  <p>{{project.responsibilities}}</p>
+  {% endfor %}
+  <!-- Skills -->
+  <h2>Skills</h2>
+  {% for skill in resume.skills %}
+  <h4>{{skill.name}}</h4>
+  {% endfor %}
+  <!-- Hobbies -->
+  <h2>Hobbies</h2>
+  {% for hobby in resume.hobbies %}
+  <h4>{{hobby.name}}</h4>
+  {% endfor %}
+</div>
 {% endblock content %}

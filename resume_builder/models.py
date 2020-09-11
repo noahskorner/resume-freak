@@ -21,6 +21,26 @@ class Resume(models.Model):
     def __str__(self):
         return self.contact_info.first_name + '\'s resume'
 
+    @property
+    def educations(self):
+        return Education.objects.filter(resume=self)
+
+    @property
+    def experiences(self):
+        return Experience.objects.filter(resume=self)
+
+    @property
+    def projects(self):
+        return Project.objects.filter(resume=self)
+
+    @property
+    def skills(self):
+        return Skill.objects.filter(resume=self)
+
+    @property
+    def hobbies(self):
+        return Hobby.objects.filter(resume=self)
+
 
 class Education(models.Model):
     school = models.CharField(max_length=50)
