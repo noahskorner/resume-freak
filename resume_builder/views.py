@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import *
+from .utils import render_to_pdf
+from django.views.generic import View
+from django.template.loader import get_template
+
 
 # Create your views here.
 
@@ -19,22 +23,22 @@ def index(request):
         # check whether it's valid:
         if contact_form.is_valid():
             # create contact_info instance but don't save it yet
-            contact_info = contact_form.save(commit=False)
+            contact_info = contact_form.save()
             # EDUCATION
             if education_form.is_valid():
-                education = education_form.save(commit=False)
+                education = education_form.save()
                 # EXPERIENCE
                 if experience_form.is_valid():
-                    experience = experience_form.save(commit=False)
+                    experience = experience_form.save()
                     # PROJECT
                     if project_form.is_valid():
-                        project = project_form.save(commit=False)
+                        project = project_form.save()
                         # SKILL
                         if skill_form.is_valid():
-                            skill = skill_form.save(commit=False)
+                            skill = skill_form.save()
                             # HOBBY
                             if hobby_form.is_valid():
-                                hobby = hobby_form.save(commit=False)
+                                hobby = hobby_form.save()
                                 # create new resume instance and add fk to other objects
                                 contact_info.save()
                                 resume = Resume.objects.create(
@@ -65,3 +69,23 @@ def resume(request, pk):
     resume = Resume.objects.get(id=pk)
     context = {'resume': resume}
     return render(request, 'resume_builder/resume.html', context)
+
+
+def download_pdf(request, pk):
+    template = get_template('pdf/resume_1.html')
+    resume = Resume.objects.get(id=pk)
+    context = {
+        'resume': resume
+    }
+    html = template.render(context)
+    pdf = render_to_pdf('pdf/resume_1.html', context)
+    if pdf:
+        response = HttpResponse(pdf, content_type='application/pdf')
+        filename = "Resume.pdf"
+        content = "inline; filename='%s'" % (filename)
+        download = request.GET.get("download")
+        if download:
+            content = "attachment; filename='%s'" % (filename)
+        response['Content-Disposition'] = content
+        return response
+    return HttpResponse("Not found")

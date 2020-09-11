@@ -2,6 +2,12 @@
 <!---->
 {% block content %} {% load static %}
 <div class="container-fluid" style="max-width: 720px">
+  <a
+    href="{% url 'download_pdf' resume.id %}"
+    class="btn btn-dark float-right"
+    target="_blank"
+    >Download</a
+  >
   <!-- Contact Info -->
   <h1>{{resume.contact_info.first_name}} {{resume.contact_info.last_name}}</h1>
   <h6>Cell:</h6>
