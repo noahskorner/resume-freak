@@ -15,11 +15,11 @@ class ContactInfo(models.Model):
 
 
 class Resume(models.Model):
-    contactInfo = models.OneToOneField(
+    contact_info = models.OneToOneField(
         ContactInfo, null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
-        return self.contactInfo.first_name + '\'s resume'
+        return self.contact_info.first_name + '\'s resume'
 
 
 class Education(models.Model):
