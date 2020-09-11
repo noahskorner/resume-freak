@@ -1,1 +1,1 @@
-web: gunicorn 'resume_freak.wsgi --log-file -
+web: gunicorn resume_freak.wsgi --log-file -
