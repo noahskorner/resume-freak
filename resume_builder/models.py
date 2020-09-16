@@ -1,6 +1,22 @@
 from django.db import models
+from django.contrib.auth.models import User
 
+import uuid
 # Create your models here
+
+
+class EndUser(models.Model):
+    user = models.OneToOneField(
+        User, null=True, blank=True, on_delete=models.CASCADE)
+    device_id = models.UUIDField(
+        primary_key=True, blank=True, default=uuid.uuid4, editable=True)
+
+    # Display  Name
+    def __str__(self):
+        if self.user is not None:
+            return self.user.username
+        else:
+            return str(self.device_id)
 
 
 class ContactInfo(models.Model):
@@ -15,6 +31,8 @@ class ContactInfo(models.Model):
 
 
 class Resume(models.Model):
+    end_user = models.ForeignKey(
+        EndUser, null=True, blank=True, on_delete=models.CASCADE)
     contact_info = models.OneToOneField(
         ContactInfo, null=True, blank=True, on_delete=models.SET_NULL)
 
