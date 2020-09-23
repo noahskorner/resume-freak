@@ -7,7 +7,11 @@ from django.template.loader import get_template
 
 
 # Create your views here.
+def home(request):
+    return render(request, 'resume_builder/home.html')
 
+def choose_template(request):
+    return render(request, 'resume_builder/choose_template.html')
 
 def resume_form(request):
     # if this is a POST request we need to process the form data
