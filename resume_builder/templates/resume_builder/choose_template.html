@@ -1,0 +1,33 @@
+{% block content %} {% load static %}
+<div class="container-fluid" style="max-width: 1440px"></div>
+<style>
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+    .button {
+      background-color: red; 
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 16px;
+    }
+    </style>
+<div class="col-6">
+    <h1 style="text-align: center;"><strong>CHOOSE YOUR <span style="color: #ff0000;">RESUME TEMPLATE</span></strong></h1> 
+
+    <div class="center">
+        <h2>Templates Here</h2>
+        <a href="{% url 'resume_form' %}" class="button">Select Template</a>   
+      </div>  
+      {% endblock content %}
