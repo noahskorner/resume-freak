@@ -10,6 +10,14 @@ from django.template.loader import get_template
 def home(request):
     return render(request, 'resume_builder/home.html')
 
+def registerPage(request):
+    context = {}
+    return render(request, 'resume_builder/register.html', context)
+
+def loginPage(request):
+    context = {}
+    return render(request, 'resume_builder/login.html', context)
+
 def choose_template(request):
     return render(request, 'resume_builder/choose_template.html')
 
