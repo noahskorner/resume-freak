@@ -4,6 +4,7 @@ from .forms import *
 from .utils import *
 from django.views.generic import View
 from django.template.loader import get_template
+from django.contrib.auth.forms import UserCreationForm
 
 
 # Create your views here.
@@ -11,7 +12,8 @@ def home(request):
     return render(request, 'resume_builder/home.html')
 
 def registerPage(request):
-    context = {}
+    form = UserCreationForm()
+    context = {'form': form}
     return render(request, 'resume_builder/register.html', context)
 
 def loginPage(request):
