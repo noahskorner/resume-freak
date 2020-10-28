@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 import uuid
 # Create your models here
 
-
 class EndUser(models.Model):
     user = models.OneToOneField(
         User, null=True, blank=True, on_delete=models.CASCADE)
@@ -79,8 +78,8 @@ class Education(models.Model):
 
 class Experience(models.Model):
     organization = models.CharField(max_length=50)
-    start_date = models.DateField(auto_now=False, auto_now_add=False)
-    end_date = models.DateField(
+    start_date1  = models.DateField(auto_now=False, auto_now_add=False)
+    end_date1 = models.DateField(
         auto_now=False, auto_now_add=False, null=True, blank=True)
     responsibilities = models.CharField(max_length=255)
 
@@ -94,7 +93,7 @@ class Experience(models.Model):
 
 class Project(models.Model):
     name = models.CharField(max_length=50)
-    responsibilities = models.CharField(max_length=255)
+    responsibilities1 = models.CharField(max_length=255)
 
     # foreign key to a resume
     resume = models.ForeignKey(
@@ -105,22 +104,22 @@ class Project(models.Model):
 
 
 class Skill(models.Model):
-    name = models.CharField(max_length=50)
+    skill_name = models.CharField(max_length=50)
 
     # foreign key to a resume
     resume = models.ForeignKey(
         Resume, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.skill_name
 
 
 class Hobby(models.Model):
-    name = models.CharField(max_length=50)
+    hobby_name = models.CharField(max_length=50)
 
     # foreign key to a resume
     resume = models.ForeignKey(
         Resume, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.hobby_name
