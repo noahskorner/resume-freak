@@ -27,5 +27,22 @@
     {% endif %}
     <!-- end GPA -->
     {% endfor %}
+    <!--Experience-->
+    <h2>Experience</h2>
+    <h4>{{experience.organization}}</h4>
+    <p>{{experience.start_date1}} - {{experience.end_date1}}</p>
+    <p>{{experience.responsibilities}}</p>
+    <!-- Projects -->
+    <h4>Projects</h4>
+    {% for project in resume.projects %}
+    <p>{{project.name}}</p>
+    <p>{{project.responsibilities1}}</p>
+    {% endfor %}
+    <!-- Skills -->
+    <h4>Skills</h4>
+    <p>{{skill.skill_name}}</p>
+    <!-- Hobby -->
+    <h4>Hobbys</h4>
+    <p>{{hobby.hobby_name}}</p>
   </body>
 </html>
