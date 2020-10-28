@@ -5,6 +5,7 @@ from .utils import *
 from django.views.generic import View
 from django.template.loader import get_template
 from django.contrib.auth.forms import UserCreationForm
+from django .forms import CreateUserForm
 
 
 # Create your views here.
@@ -12,10 +13,10 @@ def home(request):
     return render(request, 'resume_builder/home.html')
 
 def registerPage(request):
-    form = UserCreationForm()
+    form = CreateUserForm()
 
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
 
