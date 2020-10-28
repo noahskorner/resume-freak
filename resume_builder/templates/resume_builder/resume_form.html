@@ -1,6 +1,11 @@
 {% extends 'resume_builder/index.html' %}
 <!---->
 {% block content %} {% load static %} {% load crispy_forms_tags %}
+<script>
+  function goBack() {
+    window.history.back()
+  }
+  </script>
 <div class="container-fluid" style="max-width: 1440px">
   <div class="row">
     <div class="col-6">
@@ -12,10 +17,13 @@
         <div id="contact-info">
           <h4>Contact Info</h4>
           {{contact_form|crispy}}
+          <button onclick="goBack()" class="btn btn-outline-danger btn-block">
+          Back
+        </button>
           <button
             class="btn btn-outline-danger btn-block"
             id="contact-next-btn"
-          >
+          > 
             Next
           </button>
         </div>
@@ -24,13 +32,91 @@
         <div class="d-none" id="education">
           <h4>Education</h4>
           {{education_form|crispy}}
-          <input
-            type="submit"
-            class="btn btn-block btn-danger"
-            value="Download Resume"
-          />
+          <button
+            class="btn btn-outline-danger btn-block"
+            id="education-back-btn"
+          >
+          Back
+        </button>
+          <button
+            class="btn btn-outline-danger btn-block"
+            id="education-next-btn"
+          > 
+            Next
+          </button>
         </div>
         <!-- End Education -->
+        <!-- Experience -->
+        <div class="d-none" id="experience">
+          <h4>Experience</h4>
+          {{experience_form|crispy}}
+          <button
+            class="btn btn-outline-danger btn-block"
+            id="experience-back-btn"
+          >
+          Back
+        </button>
+          <button
+            class="btn btn-outline-danger btn-block"
+            id="experience-next-btn"
+          >
+          Next
+          </button>
+        </div>
+        <!-- End Experience -->
+        <!-- Projects -->
+        <div class="d-none" id="project">
+          <h4>Projects</h4>
+          {{project_form|crispy}}
+          <button
+            class="btn btn-outline-danger btn-block"
+            id="project-back-btn"
+          >
+          Back
+        </button>
+          <button
+            class="btn btn-outline-danger btn-block"
+            id="project-next-btn"
+          >
+          Next
+          </button>
+        </div>
+        <!-- End Projects -->
+        <!-- Skills -->
+        <div class="d-none" id="skill">
+          <h4>Skills</h4>
+          {{skill_form|crispy}}
+          <button
+            class="btn btn-outline-danger btn-block"
+            id="skill-back-btn"
+          >
+          Back
+        </button>
+          <button
+            class="btn btn-outline-danger btn-block"
+            id="skill-next-btn"
+          >
+          Next
+          </button>
+        </div>
+        <!-- End Skills -->
+        <!-- Hobby -->
+        <div class="d-none" id="hobby">
+          <h4>Hobby</h4>
+          {{hobby_form|crispy}}
+          <button
+            class="btn btn-outline-danger btn-block"
+            id="hobby-back-btn"
+          >
+          Back
+        </button>
+          <input
+          type="sumbit"
+          class="btn btn-block btn-danger"
+          value="Download Resume"
+        />
+        </div>
+        <!-- End Hobby -->
       </form>
     </div>
     <div class="col-6">
