@@ -17,22 +17,22 @@ class EducationForm(forms.ModelForm):
 class ExperienceForm(forms.ModelForm):
     class Meta:
         model = Experience
-        fields = ['organization', 'start_date', 'end_date', 'responsibilities']
+        fields = ['organization', 'start_date1', 'end_date1', 'responsibilities']
 
 
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ['name', 'responsibilities']
+        fields = ['name', 'responsibilities1']
 
 
 class SkillForm(forms.ModelForm):
     class Meta:
         model = Skill
-        fields = ['name']
+        fields = ['skill_name']
 
 
 class HobbyForm(forms.ModelForm):
     class Meta:
         model = Hobby
-        fields = ['name']
+        fields = ['hobby_name']
