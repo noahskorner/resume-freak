@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-
 import uuid
 # Create your models here
 
@@ -23,7 +22,6 @@ class ContactInfo(models.Model):
     last_name = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=25)
     email = models.EmailField(max_length=100)
-    profile = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
@@ -65,8 +63,6 @@ class Education(models.Model):
     start_date = models.DateField(auto_now=False, auto_now_add=False)
     end_date = models.DateField(
         auto_now=False, auto_now_add=False, null=True, blank=True)
-    gpa = models.DecimalField(
-        decimal_places=3, max_digits=6, null=True, blank=True)
 
     # foreign key to a resume
     resume = models.ForeignKey(
@@ -78,8 +74,8 @@ class Education(models.Model):
 
 class Experience(models.Model):
     organization = models.CharField(max_length=50)
-    start_date1  = models.DateField(auto_now=False, auto_now_add=False)
-    end_date1 = models.DateField(
+    start_date  = models.DateField(auto_now=False, auto_now_add=False)
+    end_date = models.DateField(
         auto_now=False, auto_now_add=False, null=True, blank=True)
     responsibilities = models.CharField(max_length=255)
 
@@ -93,7 +89,7 @@ class Experience(models.Model):
 
 class Project(models.Model):
     name = models.CharField(max_length=50)
-    responsibilities1 = models.CharField(max_length=255)
+    responsibilities = models.CharField(max_length=255)
 
     # foreign key to a resume
     resume = models.ForeignKey(
@@ -104,7 +100,7 @@ class Project(models.Model):
 
 
 class Skill(models.Model):
-    skill_name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
 
     # foreign key to a resume
     resume = models.ForeignKey(
@@ -115,7 +111,7 @@ class Skill(models.Model):
 
 
 class Hobby(models.Model):
-    hobby_name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
 
     # foreign key to a resume
     resume = models.ForeignKey(

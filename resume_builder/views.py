@@ -38,49 +38,11 @@ def resume_form(request):
         resume = Resume.objects.get_or_create(end_user=current_user)[
             0]  # remove the tuple
         # create a form instance and populate it with data from the request:
-        contact_form = ContactInfoForm(request.POST)
-        if contact_form.is_valid():
-            contact_info = contact_form.save()
-            # add contact info to end user's resume
-            resume.contact_info = contact_info
-            resume.save()
 
-            education_form = EducationForm(request.POST)
-            if education_form.is_valid():
-                education = education_form.save()
-                education.resume = resume
-                education.save()
-            
-            experience_form = ExperienceForm(request.POST)
-            if experience_form.is_valid():
-                experience = experience_form.save()
-                experience.resume = resume
-                experience.save()
-
-            project_form = ProjectForm(request.POST)
-            if project_form.is_valid():
-                project = project_form.save()
-                project.resume = resume
-                project.save()
-            
-            skill_form = SkillForm(request.POST)
-            if skill_form.is_valid():
-                skill = skill_form.save()
-                skill.resume = resume
-                skill.save()
-
-            hobby_form = HobbyForm(request.POST)
-            if hobby_form.is_valid():
-                hobby = hobby_form.save()
-                hobby.resume = resume
-                hobby.save()
-
-        return redirect("/download_pdf/")
+        return HttpResponse('Downloading Resume')
     # if a GET (or any other method) we'll create a blank form
     else:
-        context = {'contact_form': ContactInfoForm(
-        ), 'education_form': EducationForm(), 'experience_form': ExperienceForm(), 
-        'project_form': ProjectForm(), 'skill_form': SkillForm(), 'hobby_form': HobbyForm() }
+        context = {}
         return render(request, 'resume_builder/resume_form.html', context)
 
 

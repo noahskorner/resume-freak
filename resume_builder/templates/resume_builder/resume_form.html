@@ -1,47 +1,133 @@
 {% extends 'resume_builder/index.html' %}
 <!---->
 {% block content %} {% load static %} {% load crispy_forms_tags %}
-<script>
-  function goBack() {
-    window.history.back()
-  }
-  </script>
+
 <div class="container-fluid" style="max-width: 1440px">
   <div class="row">
     <div class="col-6">
       <h1>Enter Info</h1>
       <hr />
-      <form action="{% url 'resume_form' %}" method="POST">
+      <form>
         {% csrf_token %}
         <!-- Contact Info -->
         <div id="contact-info">
           <h4>Contact Info</h4>
-          {{contact_form|crispy}}
-          <button onclick="goBack()" class="btn btn-outline-danger btn-block">
-          Back
-        </button>
+          <!-- First Name -->
+          <div class="form-group">
+            <label for="contact-first-name-input">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="contact-first-name-input"
+              placeholder="Enter first name"
+            />
+          </div>
+          <!-- Last Name -->
+          <div class="form-group">
+            <label for="contact-last-name-input">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="contact-last-name-input"
+              placeholder="Enter last name"
+            />
+          </div>
+          <!-- Phone Number -->
+          <div class="form-group">
+            <label for="contact-phone-number-input">Phone Number</label>
+            <input
+              type="text"
+              class="form-control"
+              id="contact-phone-number-input"
+              placeholder="Enter phone number"
+            />
+          </div>
+          <!-- Email -->
+          <div class="form-group">
+            <label for="contact-email-input">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="contact-email-input"
+              placeholder="Enter email"
+            />
+          </div>
+          <!-- Next Button -->
           <button
             class="btn btn-outline-danger btn-block"
             id="contact-next-btn"
-          > 
+          >
             Next
           </button>
         </div>
         <!-- End Contact Info -->
         <!-- Education -->
         <div class="d-none" id="education">
-          <h4>Education</h4>
-          {{education_form|crispy}}
+          <div>
+            <div id="education-form-0">
+              <h4>Education</h4>
+              <!-- School Name -->
+              <div class="form-group">
+                <label for="education-school-input-0">School</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="education-school-input-0"
+                  placeholder="Enter school name"
+                />
+              </div>
+              <!-- Major -->
+              <div class="form-group">
+                <label for="education-major-input-0">Major</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="education-major-input-0"
+                  placeholder="Enter major"
+                />
+              </div>
+              <!-- Start Date -->
+              <div class="form-group">
+                <label for="education-start-date-input-0">Start Date</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="education-start-date-input-0"
+                  placeholder="Enter start date (YYYY-MM-DD)"
+                />
+              </div>
+              <!-- End Date -->
+              <div class="form-group">
+                <label for="education-end-date-input-0">End Date</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="education-end-date-input-0"
+                  placeholder="Enter end date (YYYY-MM-DD)"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Add Education Button -->
+          <div class="d-flex justify-content-end mb-4">
+          <button id="remove-education-btn" class="btn btn-danger btn-sm mr-4">
+            <i class="fas fa-minus"></i> Remove Education
+          </button>
+            <button id="add-education-btn" class="btn btn-warning btn-sm">
+              <i class="fas fa-plus"></i> Add Education
+            </button>
+          </div>
+          <!-- Navigation Buttons -->
           <button
             class="btn btn-outline-danger btn-block"
             id="education-back-btn"
           >
-          Back
-        </button>
+            Back
+          </button>
           <button
             class="btn btn-outline-danger btn-block"
             id="education-next-btn"
-          > 
+          >
             Next
           </button>
         </div>
@@ -49,72 +135,59 @@
         <!-- Experience -->
         <div class="d-none" id="experience">
           <h4>Experience</h4>
-          {{experience_form|crispy}}
           <button
             class="btn btn-outline-danger btn-block"
             id="experience-back-btn"
           >
-          Back
-        </button>
+            Back
+          </button>
           <button
             class="btn btn-outline-danger btn-block"
             id="experience-next-btn"
           >
-          Next
+            Next
           </button>
         </div>
         <!-- End Experience -->
         <!-- Projects -->
         <div class="d-none" id="project">
           <h4>Projects</h4>
-          {{project_form|crispy}}
           <button
             class="btn btn-outline-danger btn-block"
             id="project-back-btn"
           >
-          Back
-        </button>
+            Back
+          </button>
           <button
             class="btn btn-outline-danger btn-block"
             id="project-next-btn"
           >
-          Next
+            Next
           </button>
         </div>
         <!-- End Projects -->
         <!-- Skills -->
         <div class="d-none" id="skill">
           <h4>Skills</h4>
-          {{skill_form|crispy}}
-          <button
-            class="btn btn-outline-danger btn-block"
-            id="skill-back-btn"
-          >
-          Back
-        </button>
-          <button
-            class="btn btn-outline-danger btn-block"
-            id="skill-next-btn"
-          >
-          Next
+          <button class="btn btn-outline-danger btn-block" id="skill-back-btn">
+            Back
+          </button>
+          <button class="btn btn-outline-danger btn-block" id="skill-next-btn">
+            Next
           </button>
         </div>
         <!-- End Skills -->
         <!-- Hobby -->
         <div class="d-none" id="hobby">
           <h4>Hobby</h4>
-          {{hobby_form|crispy}}
-          <button
-            class="btn btn-outline-danger btn-block"
-            id="hobby-back-btn"
-          >
-          Back
-        </button>
+          <button class="btn btn-outline-danger btn-block" id="hobby-back-btn">
+            Back
+          </button>
           <input
-          type="sumbit"
-          class="btn btn-block btn-danger"
-          value="Download Resume"
-        />
+            type="sumbit"
+            class="btn btn-block btn-danger"
+            value="Download Resume"
+          />
         </div>
         <!-- End Hobby -->
       </form>
@@ -127,5 +200,7 @@
     </div>
   </div>
 </div>
-<script src="{% static 'js/resume_form.js' %}"></script>
+<script src="{% static 'js/single_page.js' %}"></script>
+<script src="{% static 'js/contact_form.js' %}"></script>
+<script src="{% static 'js/education_form.js' %}"></script>
 {% endblock content %}
