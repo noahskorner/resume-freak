@@ -59,6 +59,7 @@ addEducationBtn.addEventListener("click", function (event) {
 removeEducationBtn.addEventListener("click", function (event){
     event.preventDefault();
     if(numEducations === 0) { return; }
+    numEducations--;
     removedForm = document.getElementById('education-form-' + numEducations);
     removedLabels = document.getElementById('education-lbls-' + numEducations);
     removedForm.remove();
