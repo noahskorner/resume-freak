@@ -26,6 +26,11 @@ def loginPage(request):
     context = {}
     return render(request, 'resume_builder/login.html', context)
 
+def accountPage(request):
+    context = {}
+    return render(request, 'resume_builder/account.html', context)
+
+
 def choose_template(request):
     return render(request, 'resume_builder/choose_template.html')
 
@@ -38,11 +43,24 @@ def resume_form(request):
         resume = Resume.objects.get_or_create(end_user=current_user)[
             0]  # remove the tuple
         # create a form instance and populate it with data from the request:
+        contact_form = ContactInfoForm(request.POST)
+        if contact_form.is_valid():
+            contact_info = contact_form.save()
+            # add contact info to end user's resume
+            resume.contact_info = contact_info
+            resume.save()
 
-        return HttpResponse('Downloading Resume')
+            education_form = EducationForm(request.POST)
+            if education_form.is_valid():
+                education = education_form.save()
+                education.resume = resume
+                education.save()
+
+        return redirect("/download_pdf/")
     # if a GET (or any other method) we'll create a blank form
     else:
-        context = {}
+        context = {'contact_form': ContactInfoForm(
+        ), 'education_form': EducationForm()}
         return render(request, 'resume_builder/resume_form.html', context)
 
 
