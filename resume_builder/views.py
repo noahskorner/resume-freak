@@ -5,6 +5,8 @@ from .utils import *
 from django.views.generic import View
 from django.template.loader import get_template
 from django.contrib.auth.forms import UserCreationForm
+from .models import *
+import uuid
 
 
 # Create your views here.
@@ -35,9 +37,10 @@ def resume_form(request):
         # get the end user's resume
         device_id = uuid.UUID(request.COOKIES['device'])
         current_user = get_end_user(request.user, device_id)
-        resume = Resume.objects.get_or_create(end_user=current_user)[
-            0]  # remove the tuple
+        resume = Resume.objects.get_or_create(end_user=current_user)[0]  # remove the tuple
         # create a form instance and populate it with data from the request:
+        print(request.body) 
+        #request.body contains the form data
 
         return HttpResponse('Downloading Resume')
     # if a GET (or any other method) we'll create a blank form

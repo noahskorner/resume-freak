@@ -17,9 +17,6 @@ const educationMajorLbl0 = document.getElementById('education-major-lbl-0');
 const educationStartDateLbl0 = document.getElementById('education-start-date-lbl-0');
 const educationEndDateLbl0 = document.getElementById('education-end-date-lbl-0');
 
-// Varibales
-let numEducations = 0;
-
 // Event Listeners
 addEducationBtn.addEventListener("click", function (event) {
     event.preventDefault();
@@ -31,6 +28,10 @@ addEducationBtn.addEventListener("click", function (event) {
     formInputs[6].id = 'education-major-input-' + numEducations;
     formInputs[9].id = 'education-start-date-input-' + numEducations;
     formInputs[12].id = 'education-end-date-input-' + numEducations;
+    formInputs[3].name = 'education-school-' + numEducations;
+    formInputs[6].name = 'education-major-' + numEducations;
+    formInputs[9].name = 'education-start-date-' + numEducations;
+    formInputs[12].name = 'education-end-date-' + numEducations;
     educationForm0.parentNode.insertBefore(formClone, educationForm0.lastSibling)
     //duplicate the education labels
     let labelsClone = educationLbls0.cloneNode(true);
