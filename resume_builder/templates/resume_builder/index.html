@@ -1,4 +1,11 @@
 {% load static %}
+
+<style>
+  .hello-msg{
+    margin-right: 20px;
+  }
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -47,8 +54,8 @@
             </div>
       </div>
 
-      <span>Hello, {{request.user}}</span>
-      <span><a href="{% url 'logout' %}">Logout</a></span>
+      <span class="hello-msg">Hello, {{request.user}}</span>
+      <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
 
     </nav>
 
