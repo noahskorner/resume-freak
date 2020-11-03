@@ -5,6 +5,7 @@ from .utils import *
 from django.views.generic import View
 from django.template.loader import get_template
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import *
 import uuid
@@ -16,7 +17,6 @@ def home(request):
 
 def registerPage(request):
     form = CreateUserForm()
-
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
@@ -24,11 +24,18 @@ def registerPage(request):
             user = form.cleaned_data.get('username')
             messages.success(request, 'Account was created for ' + user)
             return redirect('login')
-
     context = {'form': form}
     return render(request, 'resume_builder/register.html', context)
 
 def loginPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password) 
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+
     context = {}
     return render(request, 'resume_builder/login.html', context)
 
