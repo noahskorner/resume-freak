@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import *
+from .forms import CreateUserForm
 from .utils import *
 from django.views.generic import View
 from django.template.loader import get_template
@@ -14,10 +14,10 @@ def home(request):
     return render(request, 'resume_builder/home.html')
 
 def registerPage(request):
-    form = UserCreationForm()
+    form = CreateUserForm()
 
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
 
