@@ -35,9 +35,15 @@ def loginPage(request):
         if user is not None:
             login(request, user)
             return redirect('home')
+        else:
+            messages.info(request, 'Username OR password is incorrect')
 
     context = {}
     return render(request, 'resume_builder/login.html', context)
+
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
 
 def choose_template(request):
     return render(request, 'resume_builder/choose_template.html')
