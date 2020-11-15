@@ -5,6 +5,9 @@ from .utils import *
 from django.views.generic import View
 from django.template.loader import get_template
 from django.contrib.auth.forms import UserCreationForm
+from .models import *
+import uuid
+import json
 
 
 # Create your views here.
@@ -40,27 +43,20 @@ def resume_form(request):
         # get the end user's resume
         device_id = uuid.UUID(request.COOKIES['device'])
         current_user = get_end_user(request.user, device_id)
-        resume = Resume.objects.get_or_create(end_user=current_user)[
-            0]  # remove the tuple
-        # create a form instance and populate it with data from the request:
-        contact_form = ContactInfoForm(request.POST)
-        if contact_form.is_valid():
-            contact_info = contact_form.save()
-            # add contact info to end user's resume
-            resume.contact_info = contact_info
-            resume.save()
-
-            education_form = EducationForm(request.POST)
-            if education_form.is_valid():
-                education = education_form.save()
-                education.resume = resume
-                education.save()
-
+        #request.body contains the form data
+        data = json.loads(request.body)
+        #create the contact_info model
+        contact_info = ContactInfo.objects.create(first_name=data['contact-first-name'], last_name=data['contact-last-name'], phone_number=data['contact-phone-number'], email=data['contact-email'])
+        #create the actual resume
+        resume = Resume.objects.create(end_user=current_user, contact_info=contact_info)
+        #create the education objects
+        for i in range(data['num-educations'] + 1):
+            Education.objects.create(school=data['education-school-' + str(i)], major=data['education-major-' + str(i)], start_date=data['education-start-date-' + str(i)], end_date=data['education-end-date-' + str(i)], resume=resume)
+        #download the resume
         return redirect("/download_pdf/")
     # if a GET (or any other method) we'll create a blank form
     else:
-        context = {'contact_form': ContactInfoForm(
-        ), 'education_form': EducationForm()}
+        context = {}
         return render(request, 'resume_builder/resume_form.html', context)
 
 
@@ -69,13 +65,11 @@ def resume(request, pk):
     context = {'resume': resume}
     return render(request, 'resume_builder/resume.html', context)
 
-
 def download_pdf(request):
     # get the end user's resume
     device_id = uuid.UUID(request.COOKIES['device'])
     current_user = get_end_user(request.user, device_id)
-    resume = Resume.objects.get_or_create(end_user=current_user)[
-        0]  # remove the tuple
+    resume = Resume.objects.filter(end_user=current_user).reverse()[0]  # remove the tuple
     template = get_template('pdf/resume_1.html')
     context = {
         'resume': resume

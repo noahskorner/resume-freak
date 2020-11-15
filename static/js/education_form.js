@@ -17,26 +17,29 @@ const educationMajorLbl0 = document.getElementById('education-major-lbl-0');
 const educationStartDateLbl0 = document.getElementById('education-start-date-lbl-0');
 const educationEndDateLbl0 = document.getElementById('education-end-date-lbl-0');
 
-// Varibales
-let numEducations = 0;
-
 // Event Listeners
 addEducationBtn.addEventListener("click", function (event) {
     event.preventDefault();
     //duplicate the education form
+    numEducations++;
     let formClone = educationForm0.cloneNode(true);
-    formClone.id = "education-form-" + ++numEducations;
+    formClone.id = "education-form-" + numEducations;
     let formInputs = formClone.getElementsByTagName('*');
+    //change ids
     formInputs[3].id = 'education-school-input-' + numEducations;
     formInputs[6].id = 'education-major-input-' + numEducations;
     formInputs[9].id = 'education-start-date-input-' + numEducations;
     formInputs[12].id = 'education-end-date-input-' + numEducations;
+    // change names
+    formInputs[3].name = 'education-school-' + numEducations;
+    formInputs[6].name = 'education-major-' + numEducations;
+    formInputs[9].name = 'education-start-date-' + numEducations;
+    formInputs[12].name = 'education-end-date-' + numEducations;
     educationForm0.parentNode.insertBefore(formClone, educationForm0.lastSibling)
     //duplicate the education labels
     let labelsClone = educationLbls0.cloneNode(true);
     labelsClone.id = 'education-lbls-' + numEducations;
     let labelsInputs = labelsClone.getElementsByTagName('*');
-    console.log(labelsInputs);
     labelsInputs[1].id = 'education-school-lbl-' + numEducations;
     labelsInputs[3].id = 'education-major-lbl-' + numEducations;
     labelsInputs[5].id = 'education-start-date-lbl-' + numEducations;
@@ -59,11 +62,11 @@ addEducationBtn.addEventListener("click", function (event) {
 removeEducationBtn.addEventListener("click", function (event){
     event.preventDefault();
     if(numEducations === 0) { return; }
-    numEducations--;
     removedForm = document.getElementById('education-form-' + numEducations);
     removedLabels = document.getElementById('education-lbls-' + numEducations);
     removedForm.remove();
     removedLabels.remove();
+    numEducations--;
 });
 
 educationSchoolInput0.addEventListener("input", function () {

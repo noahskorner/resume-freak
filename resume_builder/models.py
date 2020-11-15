@@ -33,9 +33,6 @@ class Resume(models.Model):
     contact_info = models.OneToOneField(
         ContactInfo, null=True, blank=True, on_delete=models.SET_NULL)
 
-    def __str__(self):
-        return self.contact_info.first_name + '\'s resume'
-
     @property
     def educations(self):
         return Education.objects.filter(resume=self)
