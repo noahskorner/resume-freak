@@ -7,7 +7,7 @@
     <div class="col-6">
       <h1>Enter Info</h1>
       <hr />
-      <form>
+      <form id="resume-form">
         {% csrf_token %}
         <!-- Contact Info -->
         <div id="contact-info">
@@ -20,6 +20,7 @@
               class="form-control"
               id="contact-first-name-input"
               placeholder="Enter first name"
+              name="contact-first-name"
             />
           </div>
           <!-- Last Name -->
@@ -29,6 +30,7 @@
               type="text"
               class="form-control"
               id="contact-last-name-input"
+              name="contact-last-name"
               placeholder="Enter last name"
             />
           </div>
@@ -39,6 +41,7 @@
               type="text"
               class="form-control"
               id="contact-phone-number-input"
+              name="contact-phone-number"
               placeholder="Enter phone number"
             />
           </div>
@@ -49,6 +52,7 @@
               type="text"
               class="form-control"
               id="contact-email-input"
+              name="contact-email"
               placeholder="Enter email"
             />
           </div>
@@ -73,6 +77,7 @@
                   type="text"
                   class="form-control"
                   id="education-school-input-0"
+                  name="education-school-0"
                   placeholder="Enter school name"
                 />
               </div>
@@ -83,6 +88,7 @@
                   type="text"
                   class="form-control"
                   id="education-major-input-0"
+                  name="education-major-0"
                   placeholder="Enter major"
                 />
               </div>
@@ -93,6 +99,7 @@
                   type="text"
                   class="form-control"
                   id="education-start-date-input-0"
+                  name="education-start-date-0"
                   placeholder="Enter start date (YYYY-MM-DD)"
                 />
               </div>
@@ -103,6 +110,7 @@
                   type="text"
                   class="form-control"
                   id="education-end-date-input-0"
+                  name="education-end-date-0"
                   placeholder="Enter end date (YYYY-MM-DD)"
                 />
               </div>
@@ -130,11 +138,72 @@
           >
             Next
           </button>
+          <button class="btn btn-danger btn-block mt-2" id="download-resume-btn">
+            Download Resume
+          </button>
         </div>
         <!-- End Education -->
         <!-- Experience -->
         <div class="d-none" id="experience">
-          <h4>Experience</h4>
+          <div>
+            <div id="experience-form-0">
+              <h4>Experience</h4>
+              <!-- Organization  -->
+              <div class="form-group">
+                <label for="experience-organization-input-0">Organization</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="experience-organization-input-0"
+                  name="experience-organization-0"
+                  placeholder="Enter organization"
+                  />
+                  </div>
+                  <!--Responsibilites-->
+                  <div class="form-group">
+                    <label for="experience-responsibilites-input-0">Responsibilites</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="experience-responsibilites-input-0"
+                      name="experience-responsibilites-0"
+                      placeholder="Enter responsibilites"
+                      />
+                  </div>
+                   <!-- Start Date -->
+                  <div class="form-group">
+                  <label for="experience-start-date-input-0">Start Date</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="experience-start-date-input-0"
+                    name="experience-start-date-0"
+                    placeholder="Enter start date (YYYY-MM-DD)"
+                  />
+                  </div>
+                  <!-- End Date -->
+                  <div class="form-group">
+                  <label for="experience-end-date-input-0">End Date</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="experience-end-date-input-0"
+                    name="experience-end-date-0"
+                    placeholder="Enter end date (YYYY-MM-DD)"
+                  />
+                </div>
+            </div>
+          </div>
+          <!--Add Experience Button-->
+          <div class="d-flex justify-content-end mb-4">
+            <button id="remove-experience-btn" class="btn btn-danger btn-sm mr-4">
+              <i class="fas fa-minus"></i> Remove Experience
+            </button>
+              <button id="add-experience-btn" class="btn btn-warning btn-sm">
+                <i class="fas fa-plus"></i> Add Experience
+              </button>
+            </div>
+            <!--Navigation Buttons-->
           <button
             class="btn btn-outline-danger btn-block"
             id="experience-back-btn"
@@ -146,6 +215,9 @@
             id="experience-next-btn"
           >
             Next
+          </button>
+          <button class="btn btn-danger btn-block mt-2" id="download-resume-btn">
+            Download Resume
           </button>
         </div>
         <!-- End Experience -->
@@ -201,6 +273,8 @@
   </div>
 </div>
 <script src="{% static 'js/single_page.js' %}"></script>
+<script src="{% static 'js/resume_form.js' %}"></script>
 <script src="{% static 'js/contact_form.js' %}"></script>
 <script src="{% static 'js/education_form.js' %}"></script>
+<script src="{% static 'js/experience_form.js' %}"></script>
 {% endblock content %}
