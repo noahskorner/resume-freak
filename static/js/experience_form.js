@@ -30,7 +30,7 @@ addExperienceBtn.addEventListener("click", function (event) {
     formInputs[9].id = 'experience-start-date-input-' + numExperience;
     formInputs[12].id = 'experience-end-date-input-' + numExperience;
     formInputs[3].name = 'experience-organization-' + numExperience;
-    formInputs[6].name = 'experience-responsibilites-' + numExperience;
+    formInputs[6].name = 'experience-responsibilites-' + numExperience; 
     formInputs[9].name = 'experience-start-date-' + numExperience;
     formInputs[12].name = 'experience-end-date-' + numExperience;
     experienceForm0.parentNode.insertBefore(formClone, experienceForm0.lastSibling)
