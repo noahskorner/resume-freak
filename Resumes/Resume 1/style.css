@@ -1,0 +1,228 @@
+* {  /* Reset and add font sytle */
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Spartan';
+}
+
+body { /* Center content in body */
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+#page-container { /* Set container for resume, set page flow to vertical and center content*/
+  width: 70%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+/* Utility Classes */
+.resume-section {
+  display: -webkit-box;
+  width: inherit;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  margin: .5rem 3.0rem;
+}
+
+.decorated-list-disc {
+  list-style-type: disc ;
+}
+
+.no-style-item {
+  list-style-type: none;
+}
+
+.list-item{
+  display: block;
+  -webkit-box-flex: 0;
+          flex: 0 1 auto;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  font-size: 0.9rem
+}
+
+.list-item-tag {
+  text-align: center;
+}
+
+.body-group {
+  margin: .5rem 0rem;
+}
+
+.spaced {
+  margin: .1rem 0rem;
+}
+
+.spaced-larger {
+  margin: .3rem 0rem;
+}
+
+.horizontal-list {
+  height: inherit;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.horizontal-list-grow-right {
+  height: inherit;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.vertical-list {
+  height: inherit;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+.body-section-title {
+  font-size: 1.1rem;
+}
+
+.inset-container{
+
+  margin: 0rem 1.2rem;
+}
+
+/* Header classes */
+.header-font {
+  font-weight: 700;
+  
+}
+
+.subheader-font {
+  font-weight: 400;
+  margin: .2rem 0rem;
+}
+
+.body-font {
+  margin: .2rem 0rem;
+  text-align: left;
+  font-size: .9rem;
+  line-height: 18px;
+}
+
+/* divider classes */
+
+#divider-bar{
+  color: white;
+  height: 30px;
+  background-color: black;
+  width: 80%;
+  text-align: center;
+
+}
+
+
+.body-section-title {
+  font-weight: 800;
+}
+
+/* Skill Section */
+
+#skills-section {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-around;
+}
+
+/* Work Section */
+
+.work-group {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+-webkit-box-pack: start;
+        justify-content: flex-start;
+  margin: 0rem 1rem;
+}
+
+.job-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.job-loc {
+  font-weight: 500;
+  font-size: small;
+}
+
+.work-list{
+  margin: .6rem 1rem;
+}
+
+.date-loc-row {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+          color: grey; 
+}
+
+/* End Work section */
+/* Begin School section */
+
+.edu-group{
+  margin-left: .4rem;
+}
+
+.degree-title {
+  font-weight: 600;
+}
+
+.school-name{
+  font-weight: 500;
+}
+
+.years-attended{
+  font-weight: 400;
+  font-size: .7rem;
+}
+
+/* End School section */
+/* Begin Orgs section */
+
+.org-title {
+  font-weight: 600;
+}
+
+.membership-dates {
+  font-weight: 400;
+}
+
+/* End orgs section */
+/* Begin language section */
+
+.language-name {
+  font-weight: 600;
+}
+
+.level-fluency {
+  font-weight: 400;
+}
