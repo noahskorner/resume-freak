@@ -52,6 +52,9 @@ def resume_form(request):
         #create the education objects
         for i in range(data['num-educations'] + 1):
             Education.objects.create(school=data['education-school-' + str(i)], major=data['education-major-' + str(i)], start_date=data['education-start-date-' + str(i)], end_date=data['education-end-date-' + str(i)], resume=resume)
+        #create the experience objects
+        for i in range(data['num-experiences'] + 1):
+            Experience.objects.create(organization=data['experience-org-' + str(i)], start_date=data['experience-start-date-' + str(i)], end_date=data['experience-end-date-' + str(i)], resume=resume)
         #download the resume
         return redirect("/download_pdf/")
     # if a GET (or any other method) we'll create a blank form

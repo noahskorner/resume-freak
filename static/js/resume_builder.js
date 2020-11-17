@@ -1,5 +1,6 @@
 // Varibales
 let numEducations = 0;
+let numExperiences = 0;
 
 // Buttons
 const downloadResumeBtn = document.getElementById('download-resume-btn');
@@ -12,6 +13,7 @@ downloadResumeBtn.addEventListener("click", function(event){
         formObj[input.name] = input.value;
     });
     formObj['num-educations'] = numEducations
+    formObj['num-experiences'] = numExperiences
     
     //Make the post request
     fetch("/resume_form/", {

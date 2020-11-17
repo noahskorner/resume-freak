@@ -74,7 +74,6 @@ class Experience(models.Model):
     start_date  = models.DateField(auto_now=False, auto_now_add=False)
     end_date = models.DateField(
         auto_now=False, auto_now_add=False, null=True, blank=True)
-    responsibilities = models.CharField(max_length=255)
 
     # foreign key to a resume
     resume = models.ForeignKey(

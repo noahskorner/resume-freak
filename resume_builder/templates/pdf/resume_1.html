@@ -29,9 +29,10 @@
     {% endfor %}
     <!--Experience-->
     <h2>Experience</h2>
+    {% for experience in resume.experiences %}
     <h4>{{experience.organization}}</h4>
-    <p>{{experience.start_date1}} - {{experience.end_date1}}</p>
-    <p>{{experience.responsibilities}}</p>
+    <p>{{experience.start_date}} - {{experience.end_date}}</p>
+    {% endfor %}
     <!-- Projects -->
     <h4>Projects</h4>
     {% for project in resume.projects %}
