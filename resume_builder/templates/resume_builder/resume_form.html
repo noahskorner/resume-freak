@@ -211,6 +211,28 @@
         <!-- Projects -->
         <div class="d-none" id="project">
           <h4>Projects</h4>
+          <!-- Project Name -->
+          <div class="form-group">
+            <lable for="project-name-input-0">Name</lable>
+            <input
+              type="text"
+              class="form-control"
+              id="project-name-input-0"
+              name="project-name-0"
+              placeholder="Enter project name"
+              />
+          </div>
+          <!-- Responsibilites -->
+          <div class="form-group">
+            <label for="project-responsibilites-input-0">Responsibilites</label>
+            <input
+              type="text"
+              class="form-control"
+              id="project-responsibilites-input-0"
+              name="project-responsibilites-0"
+              placeholder="Enter Responsibilites"
+              />
+          </div>
           <button
             class="btn btn-outline-danger btn-block"
             id="project-back-btn"
@@ -227,7 +249,22 @@
         <!-- End Projects -->
         <!-- Skills -->
         <div class="d-none" id="skill">
+          <div>
+          <div id="skill-form-0">
           <h4>Skills</h4>
+          <!-- Skill Name -->
+          <div class="form-group">
+            <label for="skill-name-input-0">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="skill-name-input-0"
+              name="skill-name-0"
+              placeholder="Enter skill name"
+              />
+          </div>
+          </div>
+        </div>
           <button class="btn btn-outline-danger btn-block" id="skill-back-btn">
             Back
           </button>
@@ -238,7 +275,22 @@
         <!-- End Skills -->
         <!-- Hobby -->
         <div class="d-none" id="hobby">
-          <h4>Hobby</h4>
+          <div>
+            <div id="project-form-0">
+              <h4>Hobby</h4>
+              <!-- Hobby Name -->
+              <div class="form-group">
+                <label for="hobby-name-input-0">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="hobby-name-input-0"
+                  name="hobby-name-0"
+                  placeholder="Enter hobby name"
+                  />
+              </div>
+            </div>
+          </div>
           <button class="btn btn-outline-danger btn-block" id="hobby-back-btn">
             Back
           </button>
@@ -264,4 +316,7 @@
 <script src="{% static 'js/contact_form.js' %}"></script>
 <script src="{% static 'js/education_form.js' %}"></script>
 <script src="{% static 'js/experience_form.js' %}"></script>
+<script src="{% static 'js/project_form.js' %}"></script>
+<script src="{% static 'js/skill_form.js' %}"></script>
+<script src="{% static 'js/hobby_form.js' %}"></script>
 {% endblock content %}
