@@ -1,2 +1,2 @@
-This project is viewable at : https://resume-freak-backend.herokuapp.com/
+This project is viewable at : https://resume-freak.herokuapp.com/
 # Resume Freak

@@ -1,4 +1,11 @@
 {% load static %}
+
+<style>
+  .hello-msg{
+    margin-right: 20px;
+  }
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,7 +25,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <!--change address when domain is up-->
-      <a class="navbar-brand" href="https://resume-freak-backend.herokuapp.com/">Resume Freak</a>
+      <a class="navbar-brand" href="https://resume-freak.herokuapp.com/">Resume Freak</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -33,26 +40,30 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <!--change address when domain is up-->
-          <a class="nav-item nav-link" href="https://resume-freak-backend.herokuapp.com/">Home</a>
+          <a class="nav-item nav-link" href="https://resume-freak.herokuapp.com/">Home</a>
         </div>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <!--change address when domain is up-->
-            <a class="nav-item nav-link" href="https://resume-freak-backend.herokuapp.com/login/">Login</a>
+            <a class="nav-item nav-link" href="https://resume-freak.herokuapp.com/login/">Login</a>
           </div>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
              
               <!--change address when domain is up-->
-            <a class="nav-item nav-link" href="https://resume-freak-backend.herokuapp.com/account/">Account</a>
+            <a class="nav-item nav-link" href="https://resume-freak.herokuapp.com/account/">Account</a>
           </div>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
 
               <!--change address when domain is up-->
-              <a class="nav-item nav-link" href="https://resume-freak-backend.herokuapp.com/register/">Register</a>
+              <a class="nav-item nav-link" href="https://resume-freak.herokuapp.com/register/">Register</a>
             </div>
       </div>
+
+      <span class="hello-msg">Hello, {{request.user}}</span>
+      <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+
     </nav>
 
     {% block content %} {% endblock content %}
