@@ -45,6 +45,7 @@ def resume_form(request):
         current_user = get_end_user(request.user, device_id)
         #request.body contains the form data
         data = json.loads(request.body)
+        print(data)
         #create the contact_info model
         contact_info = ContactInfo.objects.create(first_name=data['contact-first-name'], last_name=data['contact-last-name'], phone_number=data['contact-phone-number'], email=data['contact-email'])
         #create the actual resume
@@ -55,6 +56,12 @@ def resume_form(request):
         #create the experience objects
         for i in range(data['num-experiences'] + 1):
             Experience.objects.create(organization=data['experience-org-' + str(i)], start_date=data['experience-start-date-' + str(i)], end_date=data['experience-end-date-' + str(i)], resume=resume)
+        for i in range(data['num-projects'] + 1):
+            Project.objects.create(name=data['project-name-' + str(i)], responsibilities=data['project-responsibilities-' + str(i)], resume=resume)
+        for i in range(data['num-skills'] + 1):
+            Skill.objects.create(name=data['skill-name-' + str(i)], resume=resume)
+        for i in range(data['num-hobbies'] + 1):
+            Hobby.objects.create(name=data['hobby-name-' + str(i)], resume=resume)
         #download the resume
         return redirect("/download_pdf/")
     # if a GET (or any other method) we'll create a blank form
@@ -72,7 +79,7 @@ def download_pdf(request):
     # get the end user's resume
     device_id = uuid.UUID(request.COOKIES['device'])
     current_user = get_end_user(request.user, device_id)
-    resume = Resume.objects.filter(end_user=current_user).reverse()[0]  # remove the tuple
+    resume = Resume.objects.filter(end_user=current_user).last() # remove the tuple
     template = get_template('pdf/resume_1.html')
     context = {
         'resume': resume

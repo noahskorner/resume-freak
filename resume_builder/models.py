@@ -103,7 +103,7 @@ class Skill(models.Model):
         Resume, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.skill_name
+        return self.name
 
 
 class Hobby(models.Model):
@@ -114,4 +114,4 @@ class Hobby(models.Model):
         Resume, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.hobby_name
+        return self.name

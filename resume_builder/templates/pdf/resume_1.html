@@ -37,13 +37,17 @@
     <h4>Projects</h4>
     {% for project in resume.projects %}
     <p>{{project.name}}</p>
-    <p>{{project.responsibilities1}}</p>
+    <p>{{project.responsibilities}}</p>
     {% endfor %}
     <!-- Skills -->
     <h4>Skills</h4>
-    <p>{{skill.skill_name}}</p>
+    {% for skill in resume.skills %}
+    <p>{{skill.name}}</p>
+    {% endfor %}
     <!-- Hobby -->
     <h4>Hobbys</h4>
-    <p>{{hobby.hobby_name}}</p>
+    {% for hobby in resume.hobbies %}
+    <p>{{hobby.name}}</p>
+    {% endfor %}
   </body>
 </html>

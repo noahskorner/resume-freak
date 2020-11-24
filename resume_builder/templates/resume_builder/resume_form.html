@@ -118,9 +118,12 @@
           </div>
           <!-- Add Education Button -->
           <div class="d-flex justify-content-end mb-4">
-          <button id="remove-education-btn" class="btn btn-danger btn-sm mr-4">
-            <i class="fas fa-minus"></i> Remove Education
-          </button>
+            <button
+              id="remove-education-btn"
+              class="btn btn-danger btn-sm mr-4"
+            >
+              <i class="fas fa-minus"></i> Remove Education
+            </button>
             <button id="add-education-btn" class="btn btn-warning btn-sm">
               <i class="fas fa-plus"></i> Add Education
             </button>
@@ -182,9 +185,12 @@
           </div>
           <!-- Add Experience Button -->
           <div class="d-flex justify-content-end mb-4">
-          <button id="remove-experience-btn" class="btn btn-danger btn-sm mr-4">
-            <i class="fas fa-minus"></i> Remove experience
-          </button>
+            <button
+              id="remove-experience-btn"
+              class="btn btn-danger btn-sm mr-4"
+            >
+              <i class="fas fa-minus"></i> Remove experience
+            </button>
             <button id="add-experience-btn" class="btn btn-warning btn-sm">
               <i class="fas fa-plus"></i> Add experience
             </button>
@@ -202,15 +208,49 @@
           >
             Next
           </button>
-          <button class="btn btn-danger btn-block mt-2" id="download-resume-btn">
-            Download Resume
-          </button>
-
         </div>
         <!-- End Experience -->
         <!-- Projects -->
         <div class="d-none" id="project">
           <h4>Projects</h4>
+          <div>
+            <div id="project-form-0">
+              <!-- Project Name -->
+              <div class="form-group">
+                <label for="project-name-input-0">Project</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="project-name-input-0"
+                  name="project-name-0"
+                  placeholder="Enter project name"
+                />
+              </div>
+              <!--  Project Responsibilites/Description -->
+              <div class="form-group">
+                <label for="project-responsibilities-input-0"
+                  >Description</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="project-responsibilities-input-0"
+                  name="project-responsibilities-0"
+                  placeholder="Enter project description"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Add Project Button -->
+          <div class="d-flex justify-content-end mb-4">
+            <button id="remove-project-btn" class="btn btn-danger btn-sm mr-4">
+              <i class="fas fa-minus"></i> Remove project
+            </button>
+            <button id="add-project-btn" class="btn btn-warning btn-sm">
+              <i class="fas fa-plus"></i> Add project
+            </button>
+          </div>
+          <!-- Back/Next Buttons -->
           <button
             class="btn btn-outline-danger btn-block"
             id="project-back-btn"
@@ -228,6 +268,31 @@
         <!-- Skills -->
         <div class="d-none" id="skill">
           <h4>Skills</h4>
+          <div>
+            <div id="skill-form-0">
+              <!-- Skill Name -->
+              <div class="form-group">
+                <label for="skill-name-input-0">Skill</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="skill-name-input-0"
+                  name="skill-name-0"
+                  placeholder="Enter skill name"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Add Skill Button -->
+          <div class="d-flex justify-content-end mb-4">
+            <button id="remove-skill-btn" class="btn btn-danger btn-sm mr-4">
+              <i class="fas fa-minus"></i> Remove skill
+            </button>
+            <button id="add-skill-btn" class="btn btn-warning btn-sm">
+              <i class="fas fa-plus"></i> Add skill
+            </button>
+          </div>
+          <!-- Back/Next Buttons -->
           <button class="btn btn-outline-danger btn-block" id="skill-back-btn">
             Back
           </button>
@@ -238,15 +303,41 @@
         <!-- End Skills -->
         <!-- Hobby -->
         <div class="d-none" id="hobby">
-          <h4>Hobby</h4>
+          <h4>Hobbies</h4>
+          <div>
+            <div id="hobby-form-0">
+              <!-- Hobby Name -->
+              <div class="form-group">
+                <label for="hobby-name-input-0">Hobby</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="hobby-name-input-0"
+                  name="hobby-name-0"
+                  placeholder="Enter hobby name"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Add hobby Button -->
+          <div class="d-flex justify-content-end mb-4">
+            <button id="remove-hobby-btn" class="btn btn-danger btn-sm mr-4">
+              <i class="fas fa-minus"></i> Remove hobby
+            </button>
+            <button id="add-hobby-btn" class="btn btn-warning btn-sm">
+              <i class="fas fa-plus"></i> Add hobby
+            </button>
+          </div>
+          <!-- Back button -->
           <button class="btn btn-outline-danger btn-block" id="hobby-back-btn">
             Back
           </button>
-          <input
-            type="sumbit"
-            class="btn btn-block btn-danger"
-            value="Download Resume"
-          />
+          <button
+            class="btn btn-danger btn-block mt-2"
+            id="download-resume-btn"
+          >
+            Download Resume
+          </button>
         </div>
         <!-- End Hobby -->
       </form>
@@ -264,4 +355,7 @@
 <script src="{% static 'js/contact_form.js' %}"></script>
 <script src="{% static 'js/education_form.js' %}"></script>
 <script src="{% static 'js/experience_form.js' %}"></script>
+<script src="{% static 'js/project_form.js' %}"></script>
+<script src="{% static 'js/skill_form.js' %}"></script>
+<script src="{% static 'js/hobby_form.js' %}"></script>
 {% endblock content %}
