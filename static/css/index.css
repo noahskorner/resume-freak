@@ -1,0 +1,86 @@
+:root {
+  --RF-Red: #ff0000;
+}
+
+/* Images */
+.logo-img{
+  height: 5rem;
+}
+
+.resume-img {
+  height: 30rem;
+}
+
+
+
+/* height */
+
+.page-90{
+  height: 90vh;
+}
+
+
+/* width */
+.w-full{
+  width: 100%;
+}
+
+/* Grid classes */
+.grid{
+  display: grid;
+}
+
+
+.three-cols {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.gap-0{
+  gap: 0;
+}
+
+.gap-1{
+  gap: .25rem;
+}
+
+.gap-2{
+  gap: .50rem;
+}
+.gap-3{
+  gap: .75rem;
+}
+.gap-4{
+  gap: 1rem;
+}
+/* Flex classes */
+.flex {
+  display: flex;
+}
+
+.flex-col{
+  flex-direction: column;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
+.justify-around{
+  justify-content: space-around;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.btn-red-bg {
+  background-color: #ff0000;
+  color: white;
+}
+
+/* padding classes */
+
+p-3{
+  padding: .75rem;
+}
+

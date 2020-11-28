@@ -1,33 +1,9 @@
-
+{% extends 'resume_builder/index.html' %}
 {% block content %} {% load static %}
-<div class="container-fluid" style="max-width: 1440px"></div>
-<style>
-.center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-.button {
-  background-color: red; 
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 12px;
-}
-</style>
-      <div class="col-6">
-        <h1 style="color: #5e9ca0; text-align: center;"><span style="color: #000000;">Build a <span style="color: #ff0000;">free</span> professional resume in minutes</span></h1>        <hr />
-        <div class="center">
-          <a href="{% url 'choose_template' %}" class="button">Get Started</a>   
-        </div>  
+  <div class="page-80 flex justify-center align-center flex-col" style="height: 80vh;">
+  <h1 style="color: #5e9ca0; text-align: center;"><span style="color: #000000;">Build a <span style="color: #ff0000;">free</span> professional resume in minutes</span></h1>
+  <hr />
+    <a href="{% url 'choose_template' %}" class="btn btn-red-bg">Get Started</a>   
+</div>  
 
-        {% endblock content %}
+{% endblock  %}

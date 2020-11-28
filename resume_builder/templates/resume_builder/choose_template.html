@@ -1,33 +1,25 @@
+{% extends 'resume_builder/index.html' %}
 {% block content %} {% load static %}
-<div class="container-fluid" style="max-width: 1440px"></div>
-<style>
-    .center {
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-    }
-    .button {
-      background-color: red; 
-      border: none;
-      color: white;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-      border-radius: 16px;
-    }
-    </style>
-<div class="col-6">
-    <h1 style="text-align: center;"><strong>CHOOSE YOUR <span style="color: #ff0000;">RESUME TEMPLATE</span></strong></h1> 
+<div class="container-fluid flex flex-col justify-around align-center page-90">
+    <h1 ><strong>CHOOSE YOUR <span style="color: #ff0000;">RESUME TEMPLATE</span></strong></h1> 
+    <div class="grid three-cols w-full gap-4">
+        <div class="flex flex-col justify-center p-3">
+            <h1>Simple</h1>
+            <img src="../../../static/img/Resume-Template-Simple-723x1024.png" alt="" srcset="" class="resume-img">
+        <a href="{% url 'resume_form' %}" class=" btn btn-red-bg">Select Template</a>
+        </div>
+        <div class="flex flex-col justify-center p-3">
+            <h1>Rad</h1>
 
-    <div class="center">
-        <h2>Templates Here</h2>
-        <a href="{% url 'resume_form' %}" class="button">Select Template</a>   
-      </div>  
-      {% endblock content %}
+            <img src="../../../static/img/Resume-Template-Rad-723x1024.png" alt="" srcset="" class="resume-img">
+        <a href="{% url 'resume_form' %}" class=" btn btn-red-bg">Select Template</a>   
+        </div>  
+        <div class="flex flex-col justify-center p-3" >
+            <h1>Profesh</h1>
+
+        <img src="../../../static/img/Resume-Template-Profesh-723x1024.png" alt="" srcset="" class="resume-img">
+        <a href="{% url 'resume_form' %}" class=" btn btn-red-bg">Select Template</a>   
+        </div>
+    </div> 
+
+{% endblock  %}
