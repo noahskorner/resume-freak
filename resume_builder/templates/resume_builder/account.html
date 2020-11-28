@@ -96,67 +96,62 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
+      
 
 <html>
-        <body>
-                <h1>Account Information</h1>
-                <p>Username: {{request.user}}</p>
-
-                <p>Password:   (for now use password)</p>
-                <input name="password" required="required" placeholder="Password"  type="password" id="password"/>
-
-                <p>New Password:</p>
-                <input name="password" required="required" placeholder="New Password"  type="password" id="new_password" pattern=".{8,}" title="Password must contain eight or more characters"/>
-
-                <p>Confirm Password</p>
-                <input name="confirm_password" required="required" placeholder="Confirm Password" type="password" id="confirm_password"  pattern=".{8,}" title="Password must contain eight or more characters"/>
-
-                <br></br>
-                <input type = "submit" onclick="checkpass()" value = "Save Changes">
-                <script language='javascript' type='text/javascript'>
-                
-
-function checkpass(){
-    if(document.getElementById('password').value == "password"){
-        if(document.getElementById('new_password').value != document.getElementById('confirm_password').value){
-            alert("The Passwords Must Match!")
-        }
-
-            else{       
-                var answer = window.confirm("Are you sure you want to change your password?");
-                if (answer){
-                    alert("Your password has been changed")
-                }
-                    
-                else{
-                    alert("Canceled")
-                }
-            }
-        
-    }
- else{
-        alert("Incorrect Password!")
-    }
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial;
+  color: black;
 }
-                </script>
-        </body>
-</html>
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 30;
+  overflow-x: hidden;
+  padding-top: 100px;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.centered {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="split left">
+    <h3>Account Information</h3>
+     <p>Username: {{request.user}} </p>
+
+
+ </div>
 
 
 
-<h1>Saved Resumes</h1>
 
-<p>Select your saved resume from below</p>
+<div class="split right">
+    <h3>Resumes</h3
+
+    <p>Select your saved resume from below</p>
 <select class="resume" name="resume">
 <option value ="Resume 1">Resume 1</option>
 <option value ="Resume 2">Resume 2</option>
@@ -172,4 +167,21 @@ selected.addEventListener('change',(event) => {
         result.textContent=event.target.value;
 });
 </script>
+
+  </div>
+  
+     
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
 
