@@ -2,6 +2,15 @@
   --RF-Red: #ff0000;
 }
 
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+.simple-resume-font {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+
 /* Images */
 .logo-img{
   height: 5rem;
@@ -10,6 +19,9 @@
 .resume-img {
   height: 30rem;
 }
+
+
+
 
 
 
@@ -69,6 +81,10 @@
   justify-content: space-around;
 }
 
+.justify-between{
+  justify-content: space-between;
+}
+
 .align-center {
   align-items: center;
 }
@@ -84,3 +100,24 @@ p-3{
   padding: .75rem;
 }
 
+/* margin classes */
+
+mx-2{
+  margin: 0 .5rem;
+}
+
+/* font sizes */
+.text-sm{
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-lg{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}

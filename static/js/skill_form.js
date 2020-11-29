@@ -19,7 +19,6 @@ addSkillBtn.addEventListener("click", function (event) {
   let formClone = skillForm0.cloneNode(true);
   formClone.id = "skill-form-" + numSkills;
   let formInputs = formClone.getElementsByTagName("*");
-  console.log(formInputs)
   //change ids
   formInputs[2].id = "skill-name-input-" + numSkills;
   // change names

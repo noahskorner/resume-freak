@@ -25,7 +25,6 @@ addProjectBtn.addEventListener("click", function (event) {
   let formClone = projectForm0.cloneNode(true);
   formClone.id = "project-form-" + numProjects;
   let formInputs = formClone.getElementsByTagName("*");
-  console.log(formInputs);
   //change ids
   formInputs[2].id = "project-name-input-" + numProjects;
   formInputs[5].id = "project-responsibilities-input-" + numProjects;

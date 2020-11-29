@@ -3,6 +3,7 @@ const addHobbyBtn = document.getElementById("add-hobby-btn");
 const removeHobbyBtn = document.getElementById("remove-hobby-btn");
 
 // Forms
+console.log('hobby_form')
 const hobbyForm0 = document.getElementById("hobby-form-0");
 const hobbyLbls0 = document.getElementById("hobby-lbls-0");
 // Inputs
@@ -19,7 +20,6 @@ addHobbyBtn.addEventListener("click", function (event) {
   let formClone = hobbyForm0.cloneNode(true);
   formClone.id = "hobby-form-" + numHobbies;
   let formInputs = formClone.getElementsByTagName("*");
-  console.log(formInputs)
   //change ids
   formInputs[2].id = "hobby-name-input-" + numHobbies;
   // change names
