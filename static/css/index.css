@@ -21,11 +21,21 @@
 }
 
 
+/* Shadow */
 
+.shadow{
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 
 
 /* height */
+
+.h-full{
+  height: 100%;
+}
 
 .page-90{
   height: 90vh;
@@ -42,6 +52,10 @@
   display: grid;
 }
 
+.two-cols-small-left-large-right{
+  grid-auto-rows: 1fr;
+  grid-template-columns: .5fr 1.5fr;
+}
 
 .three-cols {
   grid-template-columns: 1fr 1fr 1fr;
@@ -83,6 +97,11 @@
 
 .justify-between{
   justify-content: space-between;
+}
+
+
+.justify-evenly{
+  justify-content: space-evenly;
 }
 
 .align-center {
@@ -185,4 +204,18 @@ mx-2{
 			color: #fff;
 			padding: 10px;
 			margin-top: 10px;
-		}
+    }
+    
+/* Account */
+
+.account-card {
+  height: 15rem;
+  width: 20rem;
+  background-color: grey;
+  border-radius: 1rem;
+}
+
+.user-img{
+  height: 10rem;
+  width: auto;
+}

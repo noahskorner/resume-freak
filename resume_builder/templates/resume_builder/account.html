@@ -1,165 +1,37 @@
-<!DOCTYPE html>
+{% extends 'resume_builder/index.html' %}
 
-{% load static %}
 
-<style>
-  .hello-msg{
-    margin-right: 20px;
-  }
-</style>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume Freak</title>
-    <!-- CSS only -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/f88a847d12.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <!--change address when domain is up-->
-      <a class="navbar-brand" href="https://resume-freak.herokuapp.com/">Resume Freak</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <!--change address when domain is up-->
-          <a class="nav-item nav-link" href="https://resume-freak.herokuapp.com/">Home</a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <!--change address when domain is up-->
-            <a class="nav-item nav-link" href="https://resume-freak.herokuapp.com/login/">Login</a>
-          </div>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-             
-              <!--change address when domain is up-->
-            <a class="nav-item nav-link" href="https://resume-freak.herokuapp.com/account/">Account</a>
-          </div>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+{% block content %} {% load static %}
 
-              <!--change address when domain is up-->
-              <a class="nav-item nav-link" href="https://resume-freak.herokuapp.com/register/">Register</a>
-            </div>
+<div class="h-full p-3 grid two-cols-small-left-large-right w-full gap-4">
+  <div class="flex flex-col h-full">
+    <div class=" p-3 shadow flex flex-col justify-center align-center">
+      <h3>Account Information</h3>
+      <div class="">
+        <img src="../../../static/img/user1.svg" alt="default user image" srcset="" class="user-img">
       </div>
+      <p>Username: {{request.user}} </p>
+    <div class="p-3">
+      <h3>Resumes</h3
 
-      <span class="hello-msg">Hello, {{request.user}}</span>
-      <span><a class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
-
-    </nav>
-
-    {% block content %} {% endblock content %}
-  </body>
-  <!-- Custom JS -->
-  <script src="{% static 'js/init.js' %}"></script>
-  <!-- JS, Popper.js, and jQuery -->
-  <script
-    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-    crossorigin="anonymous"
-  ></script>
-  <script
-    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"
-  ></script>
-</html>
+      <p>Select your saved resume from below</p>
+      <select class="resume" name="resume">
+      <option value ="Resume 1">Resume 1</option>
+      <option value ="Resume 2">Resume 2</option>
+      <option value ="Resume 3">Resume 3</option>
+      <option value ="Resume 4">Resume 4</option>
+      <option value ="Resume 5">Resume 5</option>
+      </select>
+    </div>
+    </div>
+  </div>
+  <div class="result shadow p-3">
+    <h3>Resume Viewer</h3>
+  </div>
+</div>
 
 
-
-
-
-
-
-      
-
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  font-family: Arial;
-  color: black;
-}
-
-.split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 30;
-  overflow-x: hidden;
-  padding-top: 100px;
-}
-
-.left {
-  left: 0;
-}
-
-.right {
-  right: 0;
-}
-
-.centered {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="split left">
-    <h3>Account Information</h3>
-     <p>Username: {{request.user}} </p>
-
-
- </div>
-
-
-
-
-<div class="split right">
-    <h3>Resumes</h3
-
-    <p>Select your saved resume from below</p>
-<select class="resume" name="resume">
-<option value ="Resume 1">Resume 1</option>
-<option value ="Resume 2">Resume 2</option>
-<option value ="Resume 3">Resume 3</option>
-<option value ="Resume 4">Resume 4</option>
-<option value ="Resume 5">Resume 5</option>
-</select>
-<div class="result"></div>
 <script>
 const selected = document.querySelector('.resume');
 selected.addEventListener('change',(event) => {
@@ -168,11 +40,9 @@ selected.addEventListener('change',(event) => {
 });
 </script>
 
-  </div>
   
      
-</body>
-</html> 
+{% endblock  %}
 
 
 
