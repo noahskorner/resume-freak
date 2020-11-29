@@ -3,18 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../static/css/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <title>Resume</title>
   </head>
 
-  <body>
+  <style>
+    @page{
+      size: "A4";
+      margin: 2.5cm 1.5cm 3.5cm 1.5cm;
+    }
+  </style>
+
+  <body style="font-family: 'Noto Sans KR', sans-serif;">
     <!-- Contact Info -->
+  <div style="display: flex; flex-direction: column;">
     <h1>
-      {{resume.contact_info.first_name}} {{resume.contact_info.last_name}}
+      <span id="contact-first-name-lbl" style="color: red;">{{resume.contact_info.first_name}}</span>
+      <span id="contact-last-name-lbl">{{resume.contact_info.last_name}}</span>
     </h1>
-    <h6>Cell:</h6>
-    <p>{{resume.contact_info.phone_number}}</p>
-    <h6>Email:</h6>
-    <p>{{resume.contact_info.email}}</p>
+    <div style="display: flex;">
+      <h6 style="margin: 0 .5rem; display: inline-block;">Cell: <span id="contact-phone-number-lbl">{{resume.contact_info.phone_number}}</span></h6>
+      <h6 style="margin: 0 .5rem; display: inline-block;">Email: <span id="contact-email-lbl">{{resume.contact_info.email}}</span></h6>
+    </div>
+  </div>
+  <hr>
     <!-- Educations -->
     <h2>Education</h2>
     {% for education in resume.educations %}
@@ -27,23 +41,27 @@
     {% endif %}
     <!-- end GPA -->
     {% endfor %}
+    <hr>
     <!--Experience-->
     <h2>Experience</h2>
     {% for experience in resume.experiences %}
     <h4>{{experience.organization}}</h4>
     <p>{{experience.start_date}} - {{experience.end_date}}</p>
     {% endfor %}
+    <hr>
     <!-- Projects -->
     <h4>Projects</h4>
     {% for project in resume.projects %}
     <p>{{project.name}}</p>
     <p>{{project.responsibilities}}</p>
     {% endfor %}
+    <hr>
     <!-- Skills -->
     <h4>Skills</h4>
     {% for skill in resume.skills %}
     <p>{{skill.name}}</p>
     {% endfor %}
+    <hr>
     <!-- Hobby -->
     <h4>Hobbys</h4>
     {% for hobby in resume.hobbies %}

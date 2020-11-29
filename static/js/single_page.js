@@ -31,6 +31,12 @@ contactNextBtn.addEventListener("click", function (event) {
 
 educationBackBtn.addEventListener("click", function(event){
   event.preventDefault();
+
+  // add guard to dates
+  const educationDates = document.querySelectorAll('.education-date')
+
+  console.log('education dates', educationDates)
+
   educationSection.classList.add("d-none");
   contactSection.classList.remove("d-none");
 });
